@@ -58,7 +58,7 @@ public class HangManSolver {
             // out of words in dictionary
             if (possibleGuesses.size() == 0) {
                 System.out.format("cannot guess! dictionary exhausted!, steps processed %d\n", steps);
-                exit(0);
+                break;
             }
 
 
