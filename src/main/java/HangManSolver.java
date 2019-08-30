@@ -66,7 +66,10 @@ public class HangManSolver {
             if (possibleGuesses.size() == 1) {
                 if (possibleGuesses.get(0).equals(wordToBeGuessed)) {
                     found = true;
+                    System.out.format("Only one word remaining in dict - steps %d, guess : %s \n",  steps, possibleGuesses.get(0));
                     break;
+                } else {
+                    System.out.format("Only one word remaining in dict - steps %d, word: %s, cannot guess further!",  steps, possibleGuesses.get(0));
                 }
             }
 
