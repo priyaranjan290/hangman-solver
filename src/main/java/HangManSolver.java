@@ -8,9 +8,10 @@ public class HangManSolver {
 
     public void solveHangMan() throws FileNotFoundException {
 
+        String path = "../resources/dictionary.txt";
 
         // initialize dictionary
-        Scanner scanner = new Scanner(new File(this.getClass().getResource("dictionary.txt").getPath()));
+        Scanner scanner = new Scanner(new File(path));
         List<String> possibleGuesses = new ArrayList<>();
         while (scanner.hasNextLine()) {
             possibleGuesses.add(scanner.nextLine());
@@ -18,7 +19,9 @@ public class HangManSolver {
 
 
         // word to be guessed -> can be taken as user input
-        String wordToBeGuessed = "bot";
+        System.out.println("enter the word to be searched for ...");
+        Scanner userInputScanner = new Scanner(System.in);
+        String wordToBeGuessed = userInputScanner.nextLine();
 
 
         // creating blanks to be filled
@@ -34,7 +37,7 @@ public class HangManSolver {
          * */
         int steps = 0;
         boolean found = false;
-        int triesRemaining = 7;
+        //int triesRemaining = 7;
         Set<Character> characterSetGuessedSoFar = new HashSet<>();
 
 
@@ -44,10 +47,10 @@ public class HangManSolver {
         dictionaryHelper.filterByStringLength(wordToBeGuessed.length(), possibleGuesses);
 
         // loop through to guess and conclude or terminate!
-        while (!wordGuessed.toString().equals(wordToBeGuessed) && !found && triesRemaining > 0 ) {
+        while (!wordGuessed.toString().equals(wordToBeGuessed) && !found /*&& triesRemaining > 0*/ ) {
 
             // update counter
-            triesRemaining = triesRemaining - 1;
+            //triesRemaining = triesRemaining - 1;
             steps = steps + 1;
 
             // out of words in dictionary
