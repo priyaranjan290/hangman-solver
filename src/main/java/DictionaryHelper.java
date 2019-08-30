@@ -77,7 +77,7 @@ public class DictionaryHelper {
      * 2. update the guessed word so far
      *
      * */
-    public void processGuess(char guess, StringBuilder wordGuessed, String wordToBeGuessed, List<String> list) {
+    public void processGuess(char guess, StringBuilder wordGuessed, String wordToBeGuessed, List<String> list, WrongTriesCount wrongTries) {
 
         // case of correct guess
         if (wordToBeGuessed.contains(String.valueOf(guess))) {
@@ -96,6 +96,7 @@ public class DictionaryHelper {
 
             // case of wrong guess -> filter the dictionary having the wrong guess character
             removeUnmatchedCharacter(guess, list);
+            wrongTries.value = wrongTries.value + 1;
 
         }
 

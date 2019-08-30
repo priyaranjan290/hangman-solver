@@ -37,6 +37,8 @@ public class HangManSolver {
          * */
         int steps = 0;
         boolean found = false;
+        WrongTriesCount wrongTries = new WrongTriesCount();
+        wrongTries.value = 0;
         //int triesRemaining = 7;
         Set<Character> characterSetGuessedSoFar = new HashSet<>();
 
@@ -73,7 +75,7 @@ public class HangManSolver {
                 char nextGuess = dictionaryHelper.makeNextGuess(possibleGuesses, characterSetGuessedSoFar);
 
                 // process the guess -> eliminate the un-necessary words basis feedback
-                dictionaryHelper.processGuess(nextGuess, wordGuessed , wordToBeGuessed,  possibleGuesses);
+                dictionaryHelper.processGuess(nextGuess, wordGuessed , wordToBeGuessed,  possibleGuesses, wrongTries);
 
                 System.out.format("current guess: %c, step : %d, currentWord : %s\n", nextGuess, steps, wordGuessed);
             }
@@ -90,6 +92,8 @@ public class HangManSolver {
         } else {
             System.out.println("could not guess word!\n");
         }
+
+        System.out.format("total wrong tries : %d \n", wrongTries.value);
     }
 
 
