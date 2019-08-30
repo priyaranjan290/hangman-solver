@@ -5,6 +5,11 @@
 - in case of tie, prefer vowels over consonants
 - if tie exists, sort lexicographically and pick the top character
 
+
+### dictionary
+
+- saved in src/main/resources/dictionary.txt
+
 ### how to run
 
 - bash run.sh
